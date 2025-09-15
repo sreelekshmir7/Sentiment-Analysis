@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analyze Sentiment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eaf0f6;
+            text-align: center;
+            padding: 50px;
+        }
+        h2 {
+            color: #2a2a72;
+        }
+        form {
+            margin-top: 30px;
+        }
+        textarea {
+            width: 60%;
+            height: 120px;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #aaa;
+            resize: none;
+        }
+        input[type=submit] {
+            margin-top: 15px;
+            padding: 10px 25px;
+            font-size: 16px;
+            background-color: #2a2a72;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 30px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .positive {
+            color: green;
+        }
+        .negative {
+            color: red;
+        }
+        .neutral {
+            color: goldenrod;
+        }
+        .emoji {
+            font-size: 50px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Analyze Sentiment</h2>
+    <form method="POST" action="/predict">
+        <textarea name="review" placeholder="Type your sentence here..." required></textarea><br>
+        <input type="submit" value="Predict Sentiment">
+    </form>
+
+    {% if prediction %}
+        <div class="result {{ prediction_class }}">
+            <div class="emoji">{{ emoji }}</div>
+            {{ prediction }}
+        </div>
+    {% endif %}
+</body>
+</html>
