@@ -6,7 +6,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.utils import resample
 
 # Load the dataset
-df = pd.read_csv('C:/Users/keltron/Desktop/sentiment-analysis/Reviews.csv')
+df = pd.read_csv('C:/Users/keltron/Desktop/sentiment-analysis2/Reviews.csv')
 df = df[['Text', 'Score']].dropna()
 
 # Remove neutral reviews (score == 3)
